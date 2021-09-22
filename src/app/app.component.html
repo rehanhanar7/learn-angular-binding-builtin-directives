@@ -1,0 +1,42 @@
+<h1>{{serverString}}</h1>
+<h1>Your Server Id is {{serverId}}</h1>
+
+<!-- Event Data binding example -->
+<h3>event data binding</h3>
+<button (click)="onClickMethod()">Click Me !!</button>
+<h3>{{amatext}}</h3>
+
+<!-- $event example -->
+<h3>send $event data</h3>
+<input type="text" (input)="onupdateeverykeystroke($event)">
+
+<!-- two way data binding -->
+<br>
+<h3>two way data binding</h3>
+<input type="text" [(ngModel)]="datavariablename"> <span>{{datavariablename}}</span>
+
+<!-- structural directive -->
+<p *ngIf="showInputDataFlag">{{datavariablename}} displayed after i clicked the button</p>
+
+<!-- *ngIf else -->
+<p *ngIf="showInputDataFlag; else defaultorelseconditiondomelement">{{datavariablename}} displayed after i clicked the
+  button</p>
+<ng-template #defaultorelseconditiondomelement>
+  <p>am a default value which will display until ngif condition is true</p>
+</ng-template>
+
+<!-- ngStyle -->
+<p [ngStyle]="{'background-color':'orange'}">Am Hardcoded ngStyle value</p>
+<p [ngStyle]="{backgroundColor: getcolor() }">Am Dynamic ngStyle value</p>
+
+<!-- ngClass -->
+<p [ngStyle]="{'background-color':getcolor()}" [ngClass]="{'online': status === 'online'}">Dynamic ngClass</p>
+
+<!-- ngfor -->
+<button (click)="addData();">Add Data Name</button>
+<p *ngFor="let data of datas;" [ngStyle]="{'background-color':getcolor()}" [ngClass]="{'online': status === 'online'}">
+  {{data}}
+</p>
+
+<!-- ngFor index -->
+<div *ngFor="let data of datas; let i = index">{{i+1}}.{{data}}
